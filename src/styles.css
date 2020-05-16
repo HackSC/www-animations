@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Varela&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700,800,900&display=swap');
-
 * {
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
+html, body, #root {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -68,6 +65,18 @@ p {
   -webkit-font-smoothing: antialiased;
 }
 
+.main-title {
+  font-size: 2em;
+  top: 4rem;
+}
+
+.hacksc-linear-gradient {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, rgb(254, 218, 34), rgb(255, 131, 121));
+}
+
 .page {
   padding: 0 15rem;
   display: flex;
@@ -80,8 +89,7 @@ p {
   align-items: flex-end;
 }
 
-.page .block::before {
-}
+.page .block::before {}
 
 .half {
   width: 450px;
@@ -183,12 +191,12 @@ p {
   justify-content: center;
 }
 
-.menu > span {
+.menu>span {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.menu > span:not(:last-child) {
+.menu>span:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -204,7 +212,7 @@ p {
 }
 
 .jumbo h1 {
-  width: 0;
+  /* width: 0; */
 }
 
 .jumbo p {
@@ -214,13 +222,13 @@ p {
   margin-bottom: 1.5rem;
 }
 
-.jumbo p > span {
+.jumbo p>span {
   position: relative;
   display: inline-block;
   overflow: hidden;
 }
 
-.jumbo p > a {
+.jumbo p>a {
   position: relative;
   display: inline-block;
   overflow: hidden;

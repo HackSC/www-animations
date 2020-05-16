@@ -1,8 +1,8 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useMemo, useEffect, useState } from 'react'
+import React, { useRef, useMemo, useEffect, useState } from 'react'
 import { useFrame, useThree } from 'react-three-fiber'
 
-function useWobble(factor = 1, fn = 'sin', cb) {
+const useWobble = (factor = 1, fn = 'sin', cb) => {
   const ref = useRef()
   useFrame(state => {
     const t = state.clock.getElapsedTime()
@@ -12,7 +12,7 @@ function useWobble(factor = 1, fn = 'sin', cb) {
   return ref
 }
 
-export function Box(props) {
+export const Box = (props) => {
   const [hovered, set] = useState(false)
   console.log(hovered)
   const ref = useWobble(0.5, 'cos')
@@ -25,7 +25,7 @@ export function Box(props) {
   )
 }
 
-export function Shapes() {
+export const Shapes = () => {
   const {
     viewport: { width, height }
   } = useThree()
@@ -46,11 +46,12 @@ export function Shapes() {
   )
 }
 
-function Dots(props) {
+const Dots = (props) => {
   const object = new THREE.Object3D()
   const ref = useWobble(0.1, 'cos')
   const instanced = useRef()
 
+  // eslint-disable-next-line 
   useEffect(() => {
     let id = 0
     for (let x = 0; x < 5; x++)
@@ -60,6 +61,7 @@ function Dots(props) {
         instanced.current.setMatrixAt(id++, object.matrix)
       }
     instanced.current.instanceMatrix.needsUpdate = true
+    // eslint-disable-next-line 
   }, [])
 
   useFrame(() => (instanced.current.rotation.z -= 0.001))
@@ -74,7 +76,7 @@ function Dots(props) {
   )
 }
 
-function Ring(props) {
+const Ring = (props) => {
   return (
     <mesh {...props}>
       <ringBufferGeometry attach="geometry" args={[1, 1.4, 64]} />
@@ -83,7 +85,7 @@ function Ring(props) {
   )
 }
 
-function Cross(props) {
+const Cross = (props) => {
   const inner = useRef()
   const ref = useWobble(0.1, 'sin', () => (inner.current.rotation.z += 0.001))
   return (
@@ -106,7 +108,7 @@ function Cross(props) {
   )
 }
 
-function Minus(props) {
+const Minus = (props) => {
   const ref = useWobble(0.1, 'sin')
   return (
     <group ref={ref}>
@@ -120,7 +122,7 @@ function Minus(props) {
   )
 }
 
-function Lights() {
+const Lights = () => {
   return (
     <>
       <ambientLight intensity={0.2} />
@@ -130,11 +132,12 @@ function Lights() {
   )
 }
 
-export function Categories({ time = 3000 }) {
+export const Categories = ({ time = 3000 }) => {
   const [index, set] = useState(0)
   useEffect(() => {
     const interval = setInterval(() => set((index + 1) % 2), time)
     return () => clearInterval(interval)
+    // eslint-disable-next-line 
   }, [index])
   const cats = useMemo(
     () => [
@@ -145,6 +148,7 @@ export function Categories({ time = 3000 }) {
       { npm: 'Mentors', description: 'is a hub to share and apply your knowledge to cosmic challenges.' },
       { npm: 'Everyone', description: 'is a inspiring experience that brings together the brightest minds!' }
     ],
+    // eslint-disable-next-line 
     []
   )
 
@@ -153,10 +157,12 @@ export function Categories({ time = 3000 }) {
     ref.current.style.animation = 'none'
     void ref.current.offsetHeight
     ref.current.style.animation = `changewidth ${time / 800}s linear`
+    // eslint-disable-next-line 
   }, [index])
 
   return (
     <p style={{ height: 70, width: 300 }}>
+      {/* eslint-disable-next-line */}
       <a href="#" style={{ width: 250 }} onClick={() => set((index + 1) % 2)}>
         <div
           ref={ref}

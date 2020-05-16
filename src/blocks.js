@@ -1,4 +1,5 @@
 import React, { createContext, useRef, useContext } from 'react'
+// eslint-disable-next-line 
 import { Dom as DomImpl, useFrame, useThree } from 'react-three-fiber'
 import lerp from 'lerp'
 import state from './store'

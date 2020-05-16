@@ -6,7 +6,7 @@ import { Shapes, Categories, Box } from './Home'
 import state from './store'
 import './styles.css'
 
-function HtmlContent({ className, style, children, portal }) {
+const HtmlContent = ({ className, style, children, portal }) => {
   const { size } = useThree()
   return (
     <Dom
@@ -25,7 +25,7 @@ function HtmlContent({ className, style, children, portal }) {
   )
 }
 
-function App() {
+const App = () => {
   const [events, setEvents] = useState()
   const domContent = useRef()
   const scrollArea = useRef()
@@ -48,7 +48,7 @@ function App() {
           <Shapes />
           <HtmlContent portal={domContent}>
             <div className="menu left" style={{ top: '2.55rem' }}>
-              <h2 style={{ fontSize: '2em', top: '4rem' }}>HackSC</h2>
+              <h2 className="main-title hacksc-linear-gradient">HackSC</h2>
             </div>
             <div className="menu right">
               <a className="no-decoration mx-10" href="https://2020.hacksc.com">
@@ -59,7 +59,7 @@ function App() {
               </a>
             </div>
             <div className="jumbo">
-              <h1>
+              <h1 className="hacksc-linear-gradient">
                 Create.
                 <br />
                 Learn.

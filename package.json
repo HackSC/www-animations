@@ -1,8 +1,12 @@
 {
-  "name": "hacksc-www2021-template",
+  "name": "www-animations",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "Basic version of the HackSC www2021 static website.",
+  "keywords": [
+    "hacksc",
+    "hackathon",
+    "animations"
+  ],
   "main": "src/index.js",
   "dependencies": {
     "lerp": "1.0.3",
