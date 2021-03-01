@@ -15,7 +15,7 @@
     "react-scripts": "3.4.1",
     "react-three-fiber": "4.1.4",
     "react-three-gui": "0.1.5",
-    "three": "0.116.0"
+    "three": "0.125.0"
   },
   "devDependencies": {},
   "scripts": {
